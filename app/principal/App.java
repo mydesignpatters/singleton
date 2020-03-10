@@ -20,13 +20,13 @@ public class App{
 
         configuracaoGlobal.loadPropriedades(p1);
         
-        Tela tela1 = new Tela1();
-        tela1.setConfiguracao(configuracaoGlobal);
-        tela1.carrega();
+        Tela tela1 = new Tela1("Tela1");
+        tela1.carrega(configuracaoGlobal);
+        tela1.conteudo();
 
-        Tela tela2 = new Tela2();
-        tela2.setConfiguracao(configuracaoGlobal);
-        tela2.carrega();
+        Tela tela2 = new Tela2("Tela2");
+        tela2.carrega(configuracaoGlobal);
+        tela2.conteudo();
 
         System.out.println("Propriedades da configuracao global");
 

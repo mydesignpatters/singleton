@@ -3,15 +3,15 @@ package app.telas;
 import app.config.Configuracao;
 import app.config.Propriedades;
 
-public class Tela2 implements Tela {
-    Configuracao configuracao;
-
-    public void setConfiguracao(Configuracao configuracao){
-        this.configuracao = configuracao;
+public class Tela2 extends TelaAbstrata implements Tela {
+    public Tela2(String titulo) {
+        super(titulo);
     }
 
+    Configuracao configuracao;
+
     @Override
-    public void carrega() {
+    public void carrega(Configuracao configuracao) {
         configuracao = Configuracao.getInstancia();
 
         Propriedades propriedades = new Propriedades();
@@ -21,16 +21,21 @@ public class Tela2 implements Tela {
         propriedades.addPropriedade("admin", "secret");
 
         configuracao.loadPropriedades(propriedades);
+    }
 
-        System.out.println("Propriedades atualizadas pela Tela2");
+    @Override
+    public void conteudo(){
+        System.out.println("Propriedades atualizadas pela Tela " + this.getTitulo());
 
-        Propriedades propriedadesTela2 =  configuracao.getPropriedades();
+        configuracao = Configuracao.getInstancia();
+        
+        Propriedades propriedadesTela1 =  configuracao.getPropriedades();
 
-        for (String elemento : propriedadesTela2.getPropriedades().keySet()){
+        for (String elemento : propriedadesTela1.getPropriedades().keySet()){
             String key = elemento.toString();
-            String value = propriedadesTela2.getPropriedades().get(elemento).toString();  
+            String value = propriedadesTela1.getPropriedades().get(elemento).toString();  
             System.out.println(key + " " + value);  
         }
-
     }
+
 }
