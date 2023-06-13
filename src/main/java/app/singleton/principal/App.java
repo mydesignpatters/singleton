@@ -1,10 +1,10 @@
-package app.principal;
+package app.singleton.principal;
 
-import app.config.Configuracao;
-import app.config.Propriedades;
-import app.telas.Tela;
-import app.telas.Tela1;
-import app.telas.Tela2;
+import app.singleton.config.Configuracao;
+import app.singleton.config.Propriedades;
+import app.singleton.telas.Tela;
+import app.singleton.telas.Tela1;
+import app.singleton.telas.Tela2;
 
 public class App{
     public static void main(String[] args) {

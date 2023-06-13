@@ -1,4 +1,4 @@
-package app.config;
+package app.singleton.config;
 
 public class Configuracao{
     private static Configuracao instancia;

@@ -1,6 +1,6 @@
-package app.telas;
+package app.singleton.telas;
 
-import app.config.Configuracao;
+import app.singleton.config.Configuracao;
 
 public interface Tela{
     public void carrega(Configuracao configuracao);

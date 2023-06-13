@@ -1,10 +1,10 @@
-package app.telas;
+package app.singleton.telas;
 
-import app.config.Configuracao;
-import app.config.Propriedades;
+import app.singleton.config.Configuracao;
+import app.singleton.config.Propriedades;
 
-public class Tela1 extends TelaAbstrata implements Tela {
-    public Tela1(String titulo) {
+public class Tela2 extends TelaAbstrata implements Tela {
+    public Tela2(String titulo) {
         super(titulo);
     }
 
@@ -15,7 +15,10 @@ public class Tela1 extends TelaAbstrata implements Tela {
         configuracao = Configuracao.getInstancia();
 
         Propriedades propriedades = new Propriedades();
-        propriedades.addPropriedade("porta1", 80);
+        propriedades.addPropriedade("porta1", 8081);
+        propriedades.addPropriedade("porta2", 8082);
+        propriedades.addPropriedade("porta3", 8083);
+        propriedades.addPropriedade("admin", "secret");
 
         configuracao.loadPropriedades(propriedades);
     }
@@ -23,9 +26,10 @@ public class Tela1 extends TelaAbstrata implements Tela {
     @Override
     public void conteudo(){
         System.out.println("Propriedades atualizadas pela Tela " + this.getTitulo());
-        configuracao = Configuracao.getInstancia();
 
-        Propriedades propriedadesTela1 =  this.configuracao.getPropriedades();
+        configuracao = Configuracao.getInstancia();
+        
+        Propriedades propriedadesTela1 =  configuracao.getPropriedades();
 
         for (String elemento : propriedadesTela1.getPropriedades().keySet()){
             String key = elemento.toString();
@@ -33,4 +37,5 @@ public class Tela1 extends TelaAbstrata implements Tela {
             System.out.println(key + " " + value);  
         }
     }
+
 }

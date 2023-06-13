@@ -1,4 +1,4 @@
-package app.config;
+package app.singleton.config;
 
 import java.util.HashMap;
 import java.util.Map;

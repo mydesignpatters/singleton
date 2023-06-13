@@ -1,4 +1,4 @@
-package app.telas;
+package app.singleton.telas;
 
 public abstract class TelaAbstrata{
     private String titulo;
